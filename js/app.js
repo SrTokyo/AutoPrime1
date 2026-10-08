@@ -1,12 +1,7 @@
-/*
- AUTOPRIME - JavaScript
- O JS foi mantido simples. Cada etapa corresponde a uma escolha do usuário.
-*/
-
-/* ETAPA 1: endereço da BrasilAPI */
+/*  endereço da BrasilAPI */
 const API = "https://brasilapi.com.br/api";
 
-/* ETAPA 2: elementos da página */
+/* elementos da página */
 const tipo = document.querySelector("#tipo");
 const marca = document.querySelector("#marca");
 const modelo = document.querySelector("#modelo");
@@ -15,7 +10,7 @@ const consultar = document.querySelector("#consultar");
 const status = document.querySelector("#status");
 const resultado = document.querySelector("#resultado");
 
-/* ETAPA 3: função que faz uma requisição */
+/* função que faz uma requisição */
 async function buscar(url){
   const resposta = await fetch(url);
 
@@ -26,13 +21,13 @@ async function buscar(url){
   return resposta.json();
 }
 
-/* ETAPA 4: mensagens */
+/* mensagens */
 function mensagem(texto, classe=""){
   status.textContent = texto;
   status.className = "status " + classe;
 }
 
-/* ETAPA 5: coloca dados dentro de um select */
+/* coloca dados dentro de um select */
 function preencher(select, lista, texto, campoTexto, campoValor){
   select.innerHTML = `<option value="">${texto}</option>`;
   lista.forEach(item=>{
@@ -44,7 +39,7 @@ function preencher(select, lista, texto, campoTexto, campoValor){
   select.disabled = false;
 }
 
-/* ETAPA 6: tipo -> marcas */
+/* tipo -> marcas */
 tipo.addEventListener("change", async ()=>{
   const tipoVeiculo = tipo.value;
   marca.disabled = true; modelo.disabled = true; ano.disabled = true;
@@ -58,7 +53,7 @@ tipo.addEventListener("change", async ()=>{
   }catch(e){ mensagem("Não foi possível carregar as marcas. Verifique sua internet ou tente novamente.","erro"); }
 });
 
-/* ETAPA 7: marca -> modelos */
+/* marca -> modelos */
 marca.addEventListener("change", async ()=>{
   const tipoVeiculo = tipo.value, codigoMarca = marca.value;
   modelo.disabled = true; ano.disabled = true; consultar.disabled = true; resultado.hidden = true;
@@ -71,7 +66,7 @@ marca.addEventListener("change", async ()=>{
   }catch(e){ mensagem("Não foi possível carregar os modelos. Tente novamente.","erro"); }
 });
 
-/* ETAPA 8: modelo -> anos e combustíveis
+/* modelo -> anos e combustíveis
    A BrasilAPI retorna os dois juntos no campo "nome",
    por exemplo: "2020 Gasolina". */ 
 modelo.addEventListener("change", async ()=>{
@@ -87,7 +82,7 @@ modelo.addEventListener("change", async ()=>{
   }catch(e){ mensagem("Não foi possível carregar os anos. Tente novamente.","erro"); }
 });
 
-/* ETAPA 9: ano -> detalhes e preço */
+/* ano -> detalhes e preço */
 consultar.addEventListener("click", async ()=>{
   if(!ano.value) return;
   try{
