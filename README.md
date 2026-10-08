@@ -1,10 +1,10 @@
 # AutoPrime — Consulta FIPE
 
-Projeto acadêmico de uma concessionária digital usando HTML, CSS e JavaScript.
+Projeto de uma concessionária digital usando HTML, CSS e JavaScript.
 
 ## Estrutura
 ```text
-autoprime-fipe/
+autoprime/
 ├── index.html
 ├── css/style.css
 ├── js/app.js
