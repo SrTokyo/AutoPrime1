@@ -19,8 +19,3 @@ autoprime-fipe/
 
 ## Fluxo
 Tipo → Marca → Modelo → Ano → Valor FIPE.
-
-## Publicação no GitHub Pages
-Envie a pasta para um repositório, depois em **Settings > Pages** escolha a branch `main` e a pasta `/root`.
-
-O JavaScript foi mantido propositalmente simples e comentado por etapas.
